@@ -1,0 +1,30 @@
+WINDOWS: git bash here
+git init   		# tworzy puste repozytorium
+ls -a 			# wszystkie pliki w folderze
+git status 		# status repozytorium
+git add -A		# dodanie wszystkich plików do stagingu - pliki które trafią do commitu
+git config --system core.autocrlf false
+
+git commit -m"CO SIĘ STAŁO" # commitowanie
+git log 					# historia commitów
+
+
+git remote add origin https://github.com/kamil-witek/learning.git
+git push -u origin master
+
+
+
+jak coś zmienisz to 
+git add -A
+git commit -m""...
+ALBO
+	git status
+	git commit -am"opis"
+	git push
+	pobranie repozytorium:
+	git pull --rebase
+
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
