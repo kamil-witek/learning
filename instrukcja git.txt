@@ -19,6 +19,7 @@ git add -A
 git commit -m""...
 ALBO
 	git status
+	git add -A
 	git commit -am"opis"
 	git push
 	pobranie repozytorium:
