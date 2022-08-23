@@ -1,0 +1,23 @@
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_microblaze_0_0/sim/design_1_microblaze_0_0.vhd" \
+"../../../bd/design_1/ip/design_1_dlmb_v10_0/sim/design_1_dlmb_v10_0.vhd" \
+"../../../bd/design_1/ip/design_1_ilmb_v10_0/sim/design_1_ilmb_v10_0.vhd" \
+"../../../bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/sim/design_1_dlmb_bram_if_cntlr_0.vhd" \
+"../../../bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/sim/design_1_ilmb_bram_if_cntlr_0.vhd" \
+"../../../bd/design_1/ip/design_1_microblaze_0_axi_intc_0/sim/design_1_microblaze_0_axi_intc_0.vhd" \
+"../../../bd/design_1/ip/design_1_mdm_1_0/sim/design_1_mdm_1_0.vhd" \
+"../../../bd/design_1/ip/design_1_rst_clk_wiz_1_100M_0/sim/design_1_rst_clk_wiz_1_100M_0.vhd" \
+"../../../bd/design_1/ip/design_1_axi_uartlite_0_0/sim/design_1_axi_uartlite_0_0.vhd" \
+"../../../bd/design_1/sim/design_1.vhd" \
+"../../../../fisr_v3.srcs/sources_1/bd/design_1/ipshared/1eaf/hdl/vhdl/fisr_fmul_32ns_32cud.vhd" \
+"../../../../fisr_v3.srcs/sources_1/bd/design_1/ipshared/1eaf/hdl/vhdl/fisr_fsub_32ns_32bkb.vhd" \
+"../../../../fisr_v3.srcs/sources_1/bd/design_1/ipshared/1eaf/hdl/vhdl/fisr.vhd" \
+"../../../../fisr_v3.srcs/sources_1/bd/design_1/ipshared/1eaf/hdl/ip/fisr_ap_fmul_2_max_dsp_32.vhd" \
+"../../../../fisr_v3.srcs/sources_1/bd/design_1/ipshared/1eaf/hdl/ip/fisr_ap_fsub_3_full_dsp_32.vhd" \
+"../../../bd/design_1/ip/design_1_fisr_0_0/sim/design_1_fisr_0_0.vhd" \
+"../../../bd/design_1/ip/design_1_reset_inverter_0_0/sim/design_1_reset_inverter_0_0.vhd" \
+"../../../bd/design_1/ipshared/1288/hdl/fisr_controller_v2_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/1288/hdl/fisr_controller_v2_v1_0.vhd" \
+"../../../bd/design_1/ip/design_1_fisr_controller_v2_0_0/sim/design_1_fisr_controller_v2_0_0.vhd" \
+
+nosort

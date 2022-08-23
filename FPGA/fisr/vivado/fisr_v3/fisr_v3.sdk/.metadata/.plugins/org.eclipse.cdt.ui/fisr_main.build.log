@@ -1,0 +1,28 @@
+23:24:05 **** Auto Build of configuration Debug for project fisr_main ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:70:19: warning: unused variable 'result2' [-Wunused-variable]
+     unsigned long result2 = FISR_CONTROLLER_V2_mReadReg (ADDRESS, 4);
+                   ^~~~~~~
+../src/helloworld.c:69:19: warning: unused variable 'result' [-Wunused-variable]
+     unsigned long result  = FISR_CONTROLLER_V2_mReadReg (ADDRESS, 0);
+                   ^~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main.elf  |tee "fisr_main.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3312	    320	   3104	   6736	   1a50	fisr_main.elf
+'Finished building: fisr_main.elf.size'
+' '
+
+23:24:06 Build Finished (took 419ms)
+

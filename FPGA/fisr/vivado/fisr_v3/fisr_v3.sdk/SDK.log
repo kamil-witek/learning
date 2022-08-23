@@ -1,0 +1,27 @@
+22:28:43 INFO  : Registering command handlers for SDK TCF services
+22:28:44 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\Kamil\Desktop\fisr\vivado\fisr_v3\fisr_v3.sdk\temp_xsdb_launch_script.tcl
+22:28:46 INFO  : XSCT server has started successfully.
+22:28:46 INFO  : Successfully done setting XSCT server connection channel  
+22:28:46 INFO  : Successfully done setting SDK workspace  
+22:28:46 INFO  : Processing command line option -hwspec C:/Users/Kamil/Desktop/fisr/vivado/fisr_v3/fisr_v3.sdk/design_1_wrapper.hdf.
+23:08:19 INFO  : Registering command handlers for SDK TCF services
+23:08:20 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\Kamil\Desktop\fisr\vivado\fisr_v3\fisr_v3.sdk\temp_xsdb_launch_script.tcl
+23:08:22 INFO  : XSCT server has started successfully.
+23:08:22 INFO  : Successfully done setting XSCT server connection channel  
+23:08:22 INFO  : Successfully done setting SDK workspace  
+23:08:22 INFO  : Processing command line option -hwspec C:/Users/Kamil/Desktop/fisr/vivado/fisr_v3/fisr_v3.sdk/design_1_wrapper.hdf.
+23:08:22 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+23:08:24 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1661288890803,  Project:1661286512196
+23:08:24 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from C:/Users/Kamil/Desktop/fisr/vivado/fisr_v3/fisr_v3.sdk/design_1_wrapper.hdf.
+23:08:24 INFO  : Copied contents of C:/Users/Kamil/Desktop/fisr/vivado/fisr_v3/fisr_v3.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+23:08:24 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:08:25 INFO  : 
+23:08:26 INFO  : Updating hardware inferred compiler options for fisr_main.
+23:08:26 INFO  : Clearing existing target manager status.
+23:23:54 INFO  : Registering command handlers for SDK TCF services
+23:23:54 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\Kamil\Desktop\fisr\vivado\fisr_v3\fisr_v3.sdk\temp_xsdb_launch_script.tcl
+23:23:56 INFO  : XSCT server has started successfully.
+23:23:56 INFO  : Successfully done setting XSCT server connection channel  
+23:23:56 INFO  : Successfully done setting SDK workspace  
+23:23:56 INFO  : Processing command line option -hwspec C:/Users/Kamil/Desktop/fisr/vivado/fisr_v3/fisr_v3.sdk/design_1_wrapper.hdf.
+23:23:56 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
