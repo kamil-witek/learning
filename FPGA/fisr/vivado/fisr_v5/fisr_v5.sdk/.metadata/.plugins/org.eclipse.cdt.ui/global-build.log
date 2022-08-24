@@ -1,0 +1,458 @@
+15:41:30 **** Build of project fisr_main_v5_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/bram_v4_3/src"
+make -C microblaze_0/libsrc/bram_v4_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/cpu_v2_9/src"
+make -C microblaze_0/libsrc/cpu_v2_9/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/fisr_controller_v2_v1_0/src"
+make -C microblaze_0/libsrc/fisr_controller_v2_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/gpio_v4_4/src"
+make -C microblaze_0/libsrc/gpio_v4_4/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/intc_v3_9/src"
+make -C microblaze_0/libsrc/intc_v3_9/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/standalone_v7_0/src"
+make -C microblaze_0/libsrc/standalone_v7_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make libs in microblaze_0/libsrc/bram_v4_3/src"
+make -C microblaze_0/libsrc/bram_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/cpu_v2_9/src"
+make -C microblaze_0/libsrc/cpu_v2_9/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/fisr_controller_v2_v1_0/src"
+make -C microblaze_0/libsrc/fisr_controller_v2_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling fisr_controller_v2..."
+fisr_controller_v2_selftest.c: In function 'FISR_CONTROLLER_V2_Reg_SelfTest':
+fisr_controller_v2_selftest.c:52:67: warning: comparison of integer expressions of different signedness: 'u32' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+    if ( FISR_CONTROLLER_V2_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                                   ^~
+fisr_controller_v2_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in microblaze_0/libsrc/gpio_v4_4/src"
+make -C microblaze_0/libsrc/gpio_v4_4/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling gpio"
+"Running Make libs in microblaze_0/libsrc/intc_v3_9/src"
+make -C microblaze_0/libsrc/intc_v3_9/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling intc"
+"Running Make libs in microblaze_0/libsrc/standalone_v7_0/src"
+make -C microblaze_0/libsrc/standalone_v7_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling standalone";
+microblaze_sleep.c:77:9: note: #pragma message: For the sleep routines, assembly instructions are used
+ #pragma message ("For the sleep routines, assembly instructions are used")
+         ^~~~~~~
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling uartlite"
+'Finished building libraries'
+15:41:35 **** Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3124	    320	   3108	   6552	   1998	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:42:31 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3124	    320	   3108	   6552	   1998	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:43:31 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3124	    320	   3108	   6552	   1998	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:44:31 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:83:21: warning: implicit declaration of function 'fisr_fpga' [-Wimplicit-function-declaration]
+   uint32_t y_int  = fisr_fpga(x_int);
+                     ^~~~~~~~~
+../src/helloworld.c:74:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+../src/helloworld.c:73:8: warning: variable 'y_tab' set but not used [-Wunused-but-set-variable]
+  float y_tab[N_VAL];
+        ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: ./src/helloworld.o: in function `main':
+C:\Users\Kamil\Desktop\fisr\vivado\fisr_v5\fisr_v5.sdk\fisr_main_v5\Debug/../src/helloworld.c:83: undefined reference to `fisr_fpga'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:38: fisr_main_v5.elf] Error 1
+15:45:09 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:74:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+../src/helloworld.c:73:8: warning: variable 'y_tab' set but not used [-Wunused-but-set-variable]
+  float y_tab[N_VAL];
+        ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  17629	    324	   3111	  21064	   5248	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:50:01 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:72:5: error: unknown type name 'XGpio'
+     XGpio gpio;
+     ^~~~~
+../src/helloworld.c:74:5: warning: implicit declaration of function 'XGpio_Initialize' [-Wimplicit-function-declaration]
+     XGpio_Initialize(&gpio, GPIO)
+     ^~~~~~~~~~~~~~~~
+../src/helloworld.c:74:34: error: expected ';' before 'float'
+     XGpio_Initialize(&gpio, GPIO)
+                                  ^
+                                  ;
+../src/helloworld.c:76:2:
+  float x_tab[N_VAL] = {1.0, 2.0, 3.0, 4.0, 5.0};
+  ~~~~~                            
+../src/helloworld.c:83:13: error: 'x_tab' undeclared (first use in this function); did you mean 'y_tab'?
+   float x = x_tab[i];
+             ^~~~~
+             y_tab
+../src/helloworld.c:83:13: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:93:11: error: 'buffer' undeclared (first use in this function); did you mean 'setbuffer'?
+   sprintf(buffer, "%.2f", y_tab[i]);
+           ^~~~~~
+           setbuffer
+../src/helloworld.c:94:3: warning: implicit declaration of function 'print_v2'; did you mean 'print'? [-Wimplicit-function-declaration]
+   print_v2(UART, buffer);
+   ^~~~~~~~
+   print
+../src/helloworld.c:78:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+15:50:02 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:72:5: error: unknown type name 'XGpio'
+     XGpio gpio;
+     ^~~~~
+../src/helloworld.c:74:5: warning: implicit declaration of function 'XGpio_Initialize' [-Wimplicit-function-declaration]
+     XGpio_Initialize(&gpio, GPIO);
+     ^~~~~~~~~~~~~~~~
+../src/helloworld.c:93:11: error: 'buffer' undeclared (first use in this function); did you mean 'setbuffer'?
+   sprintf(buffer, "%.2f", y_tab[i]);
+           ^~~~~~
+           setbuffer
+../src/helloworld.c:93:11: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:94:3: warning: implicit declaration of function 'print_v2'; did you mean 'print'? [-Wimplicit-function-declaration]
+   print_v2(UART, buffer);
+   ^~~~~~~~
+   print
+../src/helloworld.c:78:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+15:50:10 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:94:11: error: 'buffer' undeclared (first use in this function); did you mean 'setbuffer'?
+   sprintf(buffer, "%.2f", y_tab[i]);
+           ^~~~~~
+           setbuffer
+../src/helloworld.c:94:11: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:95:3: warning: implicit declaration of function 'print_v2'; did you mean 'print'? [-Wimplicit-function-declaration]
+   print_v2(UART, buffer);
+   ^~~~~~~~
+   print
+../src/helloworld.c:79:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+15:50:26 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:79:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+../src/helloworld.c:78:8: warning: variable 'y_tab' set but not used [-Wunused-but-set-variable]
+  float y_tab[N_VAL];
+        ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  18037	    344	   3115	  21496	   53f8	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:51:19 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:80:8: warning: variable 'y_tab_ref' set but not used [-Wunused-but-set-variable]
+  float y_tab_ref[N_VAL];
+        ^~~~~~~~~
+../src/helloworld.c:79:8: warning: variable 'y_tab' set but not used [-Wunused-but-set-variable]
+  float y_tab[N_VAL];
+        ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  18329	    344	   3119	  21792	   5520	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:53:32 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19921	    344	   3119	  23384	   5b58	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+15:54:22 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20005	    344	   3115	  23464	   5ba8	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:03:56 **** Clean-only build of configuration Debug for project fisr_main_v5 ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  fisr_main_v5.elf.size  fisr_main_v5.elf
+' '
+16:03:56 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19993	    344	   3119	  23456	   5ba0	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:20:51 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19873	    344	   3119	  23336	   5b28	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:21:12 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19873	    344	   3119	  23336	   5b28	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:21:25 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19873	    344	   3119	  23336	   5b28	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:38:09 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19929	    344	   3119	  23392	   5b60	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:51:34 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19929	    344	   3119	  23392	   5b60	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+16:52:45 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19929	    344	   3119	  23392	   5b60	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '

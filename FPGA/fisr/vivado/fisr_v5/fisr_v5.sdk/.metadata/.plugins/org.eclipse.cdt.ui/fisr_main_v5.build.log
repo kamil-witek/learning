@@ -1,0 +1,21 @@
+16:52:45 **** Auto Build of configuration Debug for project fisr_main_v5 ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../fisr_main_v5_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: fisr_main_v5.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fisr_main_v5_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "fisr_main_v5.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fisr_main_v5.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size fisr_main_v5.elf  |tee "fisr_main_v5.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19929	    344	   3119	  23392	   5b60	fisr_main_v5.elf
+'Finished building: fisr_main_v5.elf.size'
+' '
+
+16:52:46 Build Finished (took 541ms)
+
