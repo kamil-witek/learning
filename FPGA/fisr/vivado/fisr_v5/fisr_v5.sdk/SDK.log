@@ -11,3 +11,10 @@
 16:03:45 INFO  : Successfully done setting SDK workspace  
 16:03:45 INFO  : Processing command line option -hwspec C:/Users/Kamil/Desktop/fisr/vivado/fisr_v5/fisr_v5.sdk/design_1_wrapper.hdf.
 16:03:45 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+14:36:09 INFO  : Registering command handlers for SDK TCF services
+14:36:09 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\Kamil\Desktop\fisr\vivado\fisr_v5\fisr_v5.sdk\temp_xsdb_launch_script.tcl
+14:36:11 INFO  : XSCT server has started successfully.
+14:36:12 INFO  : Successfully done setting XSCT server connection channel  
+14:36:12 INFO  : Successfully done setting SDK workspace  
+14:36:12 INFO  : Processing command line option -hwspec C:/Users/Kamil/Desktop/fisr/vivado/fisr_v5/fisr_v5.sdk/design_1_wrapper.hdf.
+14:36:12 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
