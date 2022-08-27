@@ -58,11 +58,13 @@ static void MX_SPI3_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint8_t read_val = 0;
-HAL_StatusTypeDef error;
+uint8_t send_val = 0x35;
+HAL_StatusTypeDef error, error2;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_4){
 		if( HAL_GPIO_ReadPin(SPIRX_CS_GPIO_Port, SPIRX_CS_Pin) == GPIO_PIN_RESET ){
+			HAL_SPI_Abort_IT(&hspi2);
 			error = HAL_SPI_Receive_IT(&hspi2, &read_val, 1);
 			HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 		} else {
@@ -71,7 +73,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	}
 }
 
-
+void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi){
+	// rx operation completed
+	if(read_val == 1){
+		send_val = 11;
+	}else {
+		send_val = 22;
+	}
+	error2 = HAL_SPI_Transmit_IT(&hspi2, &send_val, 1);
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+}
 
 //uint8_t read_input(){
 //	uint8_t ret_val = 0;
@@ -235,7 +246,7 @@ static void MX_SPI2_Init(void)
   /* SPI2 parameter configuration*/
   hspi2.Instance = SPI2;
   hspi2.Init.Mode = SPI_MODE_SLAVE;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_2EDGE;
