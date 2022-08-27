@@ -421,7 +421,7 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi){
 	if( read_buffer == B0_WHO_AM_I ){
  800054c:	4b0b      	ldr	r3, [pc, #44]	; (800057c <HAL_SPI_RxCpltCallback+0x38>)
  800054e:	781b      	ldrb	r3, [r3, #0]
- 8000550:	2bbe      	cmp	r3, #190	; 0xbe
+ 8000550:	2b80      	cmp	r3, #128	; 0x80
  8000552:	d103      	bne.n	800055c <HAL_SPI_RxCpltCallback+0x18>
 		send_buffer = ICM20948_ID;
  8000554:	4b0a      	ldr	r3, [pc, #40]	; (8000580 <HAL_SPI_RxCpltCallback+0x3c>)

@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define B0_WHO_AM_I 	0xBE /*DEFAULT: 0x00*/	// ID register
+#define B0_WHO_AM_I 	0x80 					// ID register + READ
 #define ICM20948_ID		0xEA 					// ID value
 /* USER CODE END PD */
 
