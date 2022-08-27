@@ -29,3 +29,6 @@ ALBO
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
 
+
+git fetch --all
+git reset --hard origin/master
