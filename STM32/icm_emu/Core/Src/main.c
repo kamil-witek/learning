@@ -31,6 +31,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define B0_WHO_AM_I 	0xBE /*DEFAULT: 0x00*/	// ID register
+#define ICM20948_ID		0xEA 					// ID value
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -40,7 +42,6 @@
 
 /* Private variables ---------------------------------------------------------*/
  SPI_HandleTypeDef hspi2;
-SPI_HandleTypeDef hspi3;
 
 /* USER CODE BEGIN PV */
 
@@ -50,22 +51,22 @@ SPI_HandleTypeDef hspi3;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI2_Init(void);
-static void MX_SPI3_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t read_val = 0;
-uint8_t send_val = 0x35;
-HAL_StatusTypeDef error, error2;
+uint8_t read_buffer = 0;
+uint8_t send_buffer = 0;
+HAL_StatusTypeDef error_rx, error_tx;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	if(GPIO_Pin == GPIO_PIN_4){
+	if(GPIO_Pin == SPIRX_CS_Pin){
 		if( HAL_GPIO_ReadPin(SPIRX_CS_GPIO_Port, SPIRX_CS_Pin) == GPIO_PIN_RESET ){
+			// first abort, otherwise it doesnt work...
 			HAL_SPI_Abort_IT(&hspi2);
-			error = HAL_SPI_Receive_IT(&hspi2, &read_val, 1);
+			error_rx = HAL_SPI_Receive_IT(&hspi2, &read_buffer, 1);
 			HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 		} else {
 			HAL_SPI_Abort_IT(&hspi2);
@@ -75,36 +76,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi){
 	// rx operation completed
-	if(read_val == 1){
-		send_val = 11;
+	if( read_buffer == B0_WHO_AM_I ){
+		send_buffer = ICM20948_ID;
 	}else {
-		send_val = 22;
+		send_buffer = 0;
 	}
-	error2 = HAL_SPI_Transmit_IT(&hspi2, &send_val, 1);
-	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	error_tx = HAL_SPI_Transmit_IT(&hspi2, &send_buffer, 1);
 }
-
-//uint8_t read_input(){
-//	uint8_t ret_val = 0;
-//
-//	if( HAL_GPIO_ReadPin(SPI1_CS_GPIO_Port, SPI1_CS_Pin) == GPIO_PIN_RESET ){
-//		//		HAL_SPI_Receive(&hspi1, &read_val, 1, 100000);
-//		HAL_SPI_Receive_IT(&hspi1, &read_val, 1);
-//		//return 99;
-//	}
-//	return ret_val;
-//}
-
-int test = 0;
-
-void cs_low(){
-	HAL_GPIO_WritePin(SPITX_CS_GPIO_Port, SPITX_CS_Pin, GPIO_PIN_RESET);
-}
-void cs_high(){
-	HAL_GPIO_WritePin(SPITX_CS_GPIO_Port, SPITX_CS_Pin, GPIO_PIN_SET);
-}
-
-
 
 
 /* USER CODE END 0 */
@@ -139,7 +117,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI2_Init();
-  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -149,33 +126,7 @@ int main(void)
   while (1)
   {
 
-	  uint8_t liczba1 = 1;
-	  uint8_t liczba2 = 2;
-	  if (test == 1){
-		  cs_low();
-		  error = HAL_SPI_Transmit(&hspi3, &liczba1, 1, 1000);
-		  cs_high();
-		  test = 0;
-	  } else if (test == 2){
-		  cs_low();
-		  error = HAL_SPI_Transmit(&hspi3, &liczba2, 1, 1000);
-		  cs_high();
-		  test = 0;
-	  }
 
-
-//	  read_val = 1;
-//	  if( HAL_GPIO_ReadPin(SPI1_CS_GPIO_Port, SPI1_CS_Pin) == GPIO_PIN_SET ){
-//	  		HAL_SPI_Receive(&hspi1, &read_val, 1, 100000);
-//	  }
-
-	  //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-	  //HAL_Delay(100);
-
-	  //read_val = read_input();
-//	  if (read_val != 1){
-//		  read_val = 11;
-//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -218,11 +169,11 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
   {
     Error_Handler();
   }
@@ -266,44 +217,6 @@ static void MX_SPI2_Init(void)
 }
 
 /**
-  * @brief SPI3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI3_Init(void)
-{
-
-  /* USER CODE BEGIN SPI3_Init 0 */
-
-  /* USER CODE END SPI3_Init 0 */
-
-  /* USER CODE BEGIN SPI3_Init 1 */
-
-  /* USER CODE END SPI3_Init 1 */
-  /* SPI3 parameter configuration*/
-  hspi3.Instance = SPI3;
-  hspi3.Init.Mode = SPI_MODE_MASTER;
-  hspi3.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi3.Init.CLKPhase = SPI_PHASE_2EDGE;
-  hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
-  hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi3.Init.CRCPolynomial = 10;
-  if (HAL_SPI_Init(&hspi3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI3_Init 2 */
-
-  /* USER CODE END SPI3_Init 2 */
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -321,22 +234,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPITX_CS_GPIO_Port, SPITX_CS_Pin, GPIO_PIN_RESET);
-
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SPITX_CS_Pin */
-  GPIO_InitStruct.Pin = SPITX_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SPITX_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SPIRX_CS_Pin */
   GPIO_InitStruct.Pin = SPIRX_CS_Pin;

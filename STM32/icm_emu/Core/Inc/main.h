@@ -57,8 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define SPITX_CS_Pin GPIO_PIN_3
-#define SPITX_CS_GPIO_Port GPIOA
 #define SPIRX_CS_Pin GPIO_PIN_4
 #define SPIRX_CS_GPIO_Port GPIOA
 #define SPIRX_CS_EXTI_IRQn EXTI4_IRQn
