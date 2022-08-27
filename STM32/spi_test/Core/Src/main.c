@@ -40,7 +40,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
-SPI_HandleTypeDef hspi2;
 
 UART_HandleTypeDef huart2;
 
@@ -51,59 +50,58 @@ UART_HandleTypeDef huart2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI2_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
-#define B0_WHO_AM_I 0xBE	// read data from this register
+#define B0_WHO_AM_I		0xBE /*DEFAULT: 0x00*/	// ID register
+#define ICM20948_ID 	0xEA					// register value
 
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int test = 0;
-uint8_t read_val = 0;
-HAL_StatusTypeDef error;
 
-
-
-
+/// sets CS pin to low to begin transmission
+/// returns nothing
 void cs_low(){
 	HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, RESET);
 }
+
+/// sets CS pin to high to end transmission
+/// returns nothing
 void cs_high(){
 	HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, SET);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	if(GPIO_Pin == GPIO_PIN_6){
-		if(HAL_GPIO_ReadPin(SPI2_CS_GPIO_Port, SPI2_CS_Pin) == GPIO_PIN_RESET){
-			error = HAL_SPI_Receive_IT(&hspi2, &read_val, 1);
-		}else{
-			error = HAL_SPI_Abort_IT(&hspi2);
-		}
-	}
-}
-
-
-// simplified register read function, excludes bank selection...
+/// simplified register read function found in icm20948's library, excludes bank selection...
 uint8_t read_single_icm20948_reg(uint8_t reg){
 	uint8_t read_reg = reg;
 	uint8_t reg_val;
 
 	cs_low();
-	HAL_Delay(10);
-	HAL_SPI_Transmit(&hspi2, &read_reg, 1, 1000);
-	//HAL_SPI_Receive(&hspi2, &reg_val, 1, 1000);
-	HAL_Delay(10);
+	HAL_SPI_Transmit(&hspi1, &read_reg, 1, 1000);
+	HAL_SPI_Receive(&hspi1, &reg_val, 1, 1000);
 	cs_high();
 
 	return reg_val;
 }
 
+/// function reads the WHO_AM_I register of icm20948 to check if the read value is correct
+/// returns 1 if value is correct
+/// returns 0 otherwise
+uint8_t test_icm20948_device(){
+	uint8_t icm_id = read_single_icm20948_reg( B0_WHO_AM_I );
+	if ( icm_id == ICM20948_ID ){
+		return 1;
+	}else{
+		return 0;
+	}
+}
 
+
+uint8_t test_result = 0;
 
 /* USER CODE END 0 */
 
@@ -135,15 +133,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI2_Init();
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t liczba = 1;
-  uint8_t liczba2 = 2;
-
-
-
 
   /* USER CODE END 2 */
 
@@ -152,21 +144,8 @@ int main(void)
   while (1)
   {
 
-
-	  if (test == 1){
-		  cs_low();
-		  HAL_SPI_Transmit(&hspi1, &liczba, 1, 1000);
-		  cs_high();
-		  test = 0;
-	  } else if (test == 2){
-		  cs_low();
-		  HAL_SPI_Transmit(&hspi1, &liczba2, 1, 1000);
-		  cs_high();
-		  test = 0;
-	  }
-
-
-
+	  test_result = test_icm20948_device();
+	  HAL_Delay(1000);
 
 
     /* USER CODE END WHILE */
@@ -266,45 +245,6 @@ static void MX_SPI1_Init(void)
 }
 
 /**
-  * @brief SPI2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI2_Init(void)
-{
-
-  /* USER CODE BEGIN SPI2_Init 0 */
-
-  /* USER CODE END SPI2_Init 0 */
-
-  /* USER CODE BEGIN SPI2_Init 1 */
-
-  /* USER CODE END SPI2_Init 1 */
-  /* SPI2 parameter configuration*/
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_SLAVE;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_2EDGE;
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi2.Init.CRCPolynomial = 7;
-  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
-  if (HAL_SPI_Init(&hspi2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI2_Init 2 */
-
-  /* USER CODE END SPI2_Init 2 */
-
-}
-
-/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -362,16 +302,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(SPI1_CS_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SPI2_CS_Pin */
-  GPIO_InitStruct.Pin = SPI2_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(SPI2_CS_GPIO_Port, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
